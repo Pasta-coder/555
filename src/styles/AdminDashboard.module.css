@@ -1,0 +1,91 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .pageTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .navigationTabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .navigationTabs button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .collegeSection, 
+  .studentsSection, 
+  .recruitersSection, 
+  .requirementsSection {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .collegeCard, 
+  .studentCard, 
+  .recruiterCard,
+  .requirementCard {
+    background-color: white;
+    border: 1px solid #ecf0f1;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .addCollegeForm {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .addCollegeForm input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .addCollegeForm button {
+    padding: 10px 15px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .collegeCustomizationModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContent {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+  }

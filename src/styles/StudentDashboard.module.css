@@ -1,0 +1,75 @@
+/* styles/StudentDashboard.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profileSection, .dashboardProgress, .jobListingSection {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.sectionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.editButton {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.searchInput, .filterSelect {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.jobList {
+  list-style: none;
+  padding: 0;
+}
+
+.jobItem {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.jobStatus {
+  margin-left: 10px;
+  color: #718096;
+}
+
+.applyButton {
+  background-color: #48bb78;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.interviewPrepSection {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f4f8;
+  border-radius: 6px;
+}

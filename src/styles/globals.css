@@ -1,12 +1,13 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #d68787;
+  --foreground: #ffffff;
+  -ms-flex-align: initial;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #230e0e;
+    --background: #ebc9c9;
   }
 }
 

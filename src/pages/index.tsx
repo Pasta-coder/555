@@ -114,30 +114,176 @@
 //       </div>
 //     </>
 //   );
+
+
+
+// import Link from "next/link";
+// import styles from '../styles/Home.module.css';
+
+// export default function Home() {
+//   return (
+//     <div className={styles.container}>
+//       <h1 className={styles.title}>Welcome to the Placement Platform</h1>
+//       <ul className={styles.list}>
+//         <li className={styles.listItem}>
+//           <Link href="/admin/dashboard" className={styles.link}>
+//             Admin Dashboard
+//           </Link>
+//         </li>
+//         <li className={styles.listItem}>
+//           <Link href="/student/dashboard" className={styles.link}>
+//             Student Dashboard
+//           </Link>
+//         </li>
+//         <li className={styles.listItem}>
+//           <Link href="/recruiter/dashboard" className={styles.link}>
+//             Recruiter Dashboard
+//           </Link>
+//         </li>
+//       </ul>
+//     </div>
+//   );
 // }
-import Link from "next/link";
+
+
+// pages/index.tsx
+import { useState } from 'react';
+import Link from 'next/link';
+import styles from '../styles/Home.module.css';
+
+type UserType = 'student' | 'recruiter' | 'admin';
 
 export default function Home() {
+  const [showSignup, setShowSignup] = useState(false);
+  const [selectedUserType, setSelectedUserType] = useState<UserType | null>(null);
+  const [signupForm, setSignupForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    userType: '' as UserType
+  });
+
+  const handleSignupChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSignupForm(prev => ({
+      ...prev,
+      [name]: value,
+      userType: selectedUserType || prev.userType
+    }));
+  };
+
+  const handleSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Implement signup logic
+    console.log('Signup Data:', signupForm);
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Welcome to the Placement Platform</h1>
-      <ul>
-        <li>
-          <Link href="/admin/dashboard" className="text-blue-500">
-            Admin Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link href="/student/dashboard" className="text-blue-500">
-            Student Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link href="/recruiter/dashboard" className="text-blue-500">
-            Recruiter Dashboard
-          </Link>
-        </li>
-      </ul>
+    <div className={styles.container}>
+      <div className={styles.background}></div>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Placement Platform</h1>
+        
+        <div className={styles.buttonGroup}>
+          <button 
+            className={styles.mainButton}
+            onClick={() => {
+              setShowSignup(true);
+              setSelectedUserType(null);
+            }}
+          >
+            Sign Up
+          </button>
+          
+          <div className={styles.signinOptions}>
+            <Link href="/student/signin" className={styles.link}>
+              <button className={styles.signinButton}>
+                Student Sign In
+              </button>
+            </Link>
+            <Link href="/recruiter/signin" className={styles.link}>
+              <button className={styles.signinButton}>
+                Recruiter Sign In
+              </button>
+            </Link>
+            <Link href="/admin/signin" className={styles.link}>
+              <button className={styles.signinButton}>
+                Admin Sign In
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        {showSignup && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <h2>Select User Type</h2>
+              <div className={styles.userTypeSelect}>
+                <button 
+                  className={`${styles.userTypeButton} ${selectedUserType === 'student' ? styles.selected : ''}`}
+                  onClick={() => setSelectedUserType('student')}
+                >
+                  Student
+                </button>
+                <button 
+                  className={`${styles.userTypeButton} ${selectedUserType === 'recruiter' ? styles.selected : ''}`}
+                  onClick={() => setSelectedUserType('recruiter')}
+                >
+                  Recruiter
+                </button>
+                <button 
+                  className={`${styles.userTypeButton} ${selectedUserType === 'admin' ? styles.selected : ''}`}
+                  onClick={() => setSelectedUserType('admin')}
+                >
+                  Admin
+                </button>
+              </div>
+
+              {selectedUserType && (
+                <form onSubmit={handleSignup} className={styles.signupForm}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Full Name"
+                    value={signupForm.name}
+                    onChange={handleSignupChange}
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    value={signupForm.email}
+                    onChange={handleSignupChange}
+                    required
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={signupForm.password}
+                    onChange={handleSignupChange}
+                    required
+                  />
+                  <button type="submit" className={styles.submitButton}>
+                    Sign Up as {selectedUserType.charAt(0).toUpperCase() + selectedUserType.slice(1)}
+                  </button>
+                </form>
+              )}
+              
+              <button 
+                className={styles.closeButton}
+                onClick={() => {
+                  setShowSignup(false);
+                  setSelectedUserType(null);
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
