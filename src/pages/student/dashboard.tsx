@@ -1,180 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { auth } from "@/firebase/firebaseConfig";
-// import { onAuthStateChanged } from "firebase/auth";
-
-// const StudentDashboard = () => {
-//   const [user, setUser] = useState<any>(null);
-
-//   useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-//       setUser(currentUser);
-//     });
-//     return () => unsubscribe();
-//   }, []);
-
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-2xl font-bold mb-4">Student Dashboard</h1>
-//       {user ? <p>Welcome, {user.email}</p> : <p>Please log in to view your dashboard.</p>}
-//     </div>
-//   );
-// };
-
-// export default StudentDashboard;
-// import { useState } from "react";
-
-// const StudentDashboard = () => {
-//   const [profile, setProfile] = useState({
-//     name: "Alice Johnson",
-//     email: "alice@example.com",
-//     resume: "Resume.pdf",
-//   });
-
-//   const [jobs, setJobs] = useState([
-//     { id: 1, title: "Software Engineer", company: "ABC Corp", status: "Applied" },
-//     { id: 2, title: "Data Analyst", company: "XYZ Ltd", status: "Not Applied" },
-//   ]);
-
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-2xl font-bold mb-4">Student Dashboard</h1>
-
-//       <section className="mb-6">
-//         <h2 className="text-xl font-semibold mb-2">Profile</h2>
-//         <p>Name: {profile.name}</p>
-//         <p>Email: {profile.email}</p>
-//         <p>Resume: <a href="#">{profile.resume}</a></p>
-//       </section>
-
-//       <section>
-//         <h2 className="text-xl font-semibold mb-2">Job Listings</h2>
-//         <ul>
-//           {jobs.map((job) => (
-//             <li key={job.id} className="mb-2">
-//               {job.title} at {job.company} - 
-//               <span className={`ml-2 ${job.status === "Applied" ? "text-green-500" : "text-gray-500"}`}>
-//                 {job.status}
-//               </span>
-//             </li>
-//           ))}
-//         </ul>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default StudentDashboard;
-
-//
-//import Notifications from "@/components/Notifications";
-
-//<Notifications />
-//
-
-// import { useState } from "react";
-
-// const StudentDashboard = () => {
-//   const [profile] = useState({
-//     name: "jayant chauhan",
-//     email: "123@example.com",
-//     resume: "Resume.pdf",
-//   });
-
-//   const [jobs, setJobs] = useState([
-//     { id: 1, title: "Software Engineer", company: "ABC Corp", status: "Not Applied" },
-//     { id: 2, title: "Data Analyst", company: "XYZ Ltd", status: "Not Applied" },
-//     { id: 3, title: "Backend Developer", company: "Tech Solutions", status: "Applied" },
-//   ]);
-
-//   const [searchQuery, setSearchQuery] = useState("");
-//   const [filter, setFilter] = useState("All");
-
-//   const handleApply = (jobId: number) => {
-//     setJobs((prevJobs) =>
-//       prevJobs.map((job) =>
-//         job.id === jobId ? { ...job, status: "Applied" } : job
-//       )
-//     );
-//   };
-
-//   const filteredJobs = jobs.filter((job) => {
-//     const matchesSearch = job.title.toLowerCase().includes(searchQuery.toLowerCase());
-//     const matchesFilter =
-//       filter === "All" ||
-//       (filter === "Applied" && job.status === "Applied") ||
-//       (filter === "Not Applied" && job.status === "Not Applied");
-//     return matchesSearch && matchesFilter;
-//   });
-
-//   return (
-//     <div className="p-4">
-//       <h1 className="text-2xl font-bold mb-4">Student Dashboard</h1>
-
-//       <section className="mb-6">
-//         <h2 className="text-xl font-semibold mb-2">Profile</h2>
-//         <p>Name: {profile.name}</p>
-//         <p>Email: {profile.email}</p>
-//         <p>
-//           Resume: <a href="#">{profile.resume}</a>
-//         </p>
-//       </section>
-
-//       <section>
-//         <h2 className="text-xl font-semibold mb-2">Job Listings</h2>
-//         <div className="flex items-center gap-4 mb-4">
-//           <input
-//             type="text"
-//             placeholder="Search jobs..."
-//             value={searchQuery}
-//             onChange={(e) => setSearchQuery(e.target.value)}
-//             className="p-2 border rounded w-1/3"
-//           />
-//           <select
-//             value={filter}
-//             onChange={(e) => setFilter(e.target.value)}
-//             className="p-2 border rounded"
-//           >
-//             <option value="All">All</option>
-//             <option value="Applied">Applied</option>
-//             <option value="Not Applied">Not Applied</option>
-//           </select>
-//         </div>
-//         <ul>
-//           {filteredJobs.map((job) => (
-//             <li key={job.id} className="mb-4">
-//               <div>
-//                 <strong>{job.title}</strong> at {job.company} -{" "}
-//                 <span
-//                   className={`${
-//                     job.status === "Applied" ? "text-green-500" : "text-gray-500"
-//                   }`}
-//                 >
-//                   {job.status}
-//                 </span>
-//               </div>
-//               {job.status === "Not Applied" && (
-//                 <button
-//                   className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
-//                   onClick={() => handleApply(job.id)}
-//                 >
-//                   Apply
-//                 </button>
-//               )}
-//             </li>
-//           ))}
-//         </ul>
-//         {filteredJobs.length === 0 && (
-//           <p className="text-gray-500">No jobs match your criteria.</p>
-//         )}
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default StudentDashboard;
-
-
-
 
 
 import Notifications from "@/components/Notifications";
@@ -295,7 +118,11 @@ interface Profile {
   email: string;
   phone: string;
   skills: string[];
+  college: string;
+  resumeLink: string;
   resume: File | null;
+  githubProfile: string;
+  leetcodeProfile: string;
 }
 
 interface Job {
@@ -314,6 +141,71 @@ interface InterviewPrepResource {
   link?: string;
 }
 
+const containerStyle: React.CSSProperties = {
+  padding: '20px',
+  fontFamily: 'Arial, sans-serif'
+};
+
+const profileSectionStyle: React.CSSProperties = {
+  backgroundColor: '#f9f9f9',
+  borderRadius: '8px',
+  padding: '20px',
+  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+};
+
+const sectionTitleStyle: React.CSSProperties = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  borderBottom: '1px solid #e0e0e0',
+  paddingBottom: '10px',
+  marginBottom: '15px'
+};
+
+const editButtonStyle: React.CSSProperties = {
+  backgroundColor: '#007bff',
+  color: 'white',
+  border: 'none',
+  padding: '5px 10px',
+  borderRadius: '4px',
+  cursor: 'pointer'
+};
+
+const inputGroupStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '10px'
+};
+
+const inputStyle: React.CSSProperties = {
+  padding: '10px',
+  border: '1px solid #ddd',
+  borderRadius: '4px',
+  marginTop: '5px'
+};
+
+const profileDetailsStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '10px'
+};
+
+const profileItemStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center'
+};
+
+const labelStyle: React.CSSProperties = {
+  fontWeight: 'bold',
+  width: '150px',
+  marginRight: '10px'
+};
+
+const linkStyle: React.CSSProperties = {
+  color: '#007bff',
+  textDecoration: 'none'
+};
+
 const StudentDashboard = () => {
   // State Management
   const [profile, setProfile] = useState<Profile>({
@@ -321,7 +213,11 @@ const StudentDashboard = () => {
     email: '',
     phone: '',
     skills: [],
-    resume: null
+    college: '',
+    resumeLink: '',
+    resume: null,
+    githubProfile: '',
+    leetcodeProfile: ''
   });
 
   const [jobs, setJobs] = useState<Job[]>([
@@ -362,10 +258,12 @@ const StudentDashboard = () => {
     setIsEditingProfile(false);
   };
 
-  const handleResumeUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  const handleResumeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
-      setProfile(prev => ({...prev, resume: file}));
+      handleProfileSave({ 
+        resumeLink: URL.createObjectURL(file) 
+      });
     }
   };
 
@@ -403,33 +301,148 @@ const StudentDashboard = () => {
   return (
     <div className={styles.container}>
       {/* Profile Section */}
-      <section className={styles.profileSection}>
-        <h2 className={styles.sectionTitle}>
+      <section style={profileSectionStyle}>
+        <h2 style={sectionTitleStyle}>
           Profile 
-          <button onClick={handleProfileEdit} className={styles.editButton}>
+          <button 
+            onClick={handleProfileEdit} 
+            style={editButtonStyle}
+          >
             {isEditingProfile ? 'Cancel' : 'Edit'}
           </button>
         </h2>
         
         {isEditingProfile ? (
           <div>
-            <input 
-              placeholder="Name" 
-              value={profile.name}
-              onChange={(e) => handleProfileSave({name: e.target.value})}
-            />
-            {/* Add similar inputs for other profile fields */}
-            <input 
-              type="file" 
-              accept=".pdf,.doc,.docx"
-              onChange={handleResumeUpload}
-            />
+            <div style={inputGroupStyle}>
+              <label>Name</label>
+              <input 
+                placeholder="Full Name" 
+                value={profile.name}
+                onChange={(e) => handleProfileSave({name: e.target.value})}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label>Email</label>
+              <input 
+                placeholder="Email Address" 
+                value={profile.email}
+                onChange={(e) => handleProfileSave({email: e.target.value})}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label>College</label>
+              <input 
+                placeholder="College Name" 
+                value={profile.college}
+                onChange={(e) => handleProfileSave({college: e.target.value})}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label>Resume</label>
+              <input 
+                type="file" 
+                accept=".pdf,.doc,.docx"
+                onChange={handleResumeUpload}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label>GitHub Profile</label>
+              <input 
+                placeholder="GitHub Profile URL" 
+                value={profile.githubProfile}
+                onChange={(e) => handleProfileSave({githubProfile: e.target.value})}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label>LeetCode Profile</label>
+              <input 
+                placeholder="LeetCode Profile URL" 
+                value={profile.leetcodeProfile}
+                onChange={(e) => handleProfileSave({leetcodeProfile: e.target.value})}
+                style={inputStyle}
+              />
+            </div>
+            <button 
+              onClick={() => setIsEditingProfile(false)}
+              style={{
+                ...editButtonStyle,
+                marginTop: '10px'
+              }}
+            >
+              Save Changes
+            </button>
           </div>
         ) : (
-          <div>
-            <p>Name: {profile.name}</p>
-            <p>Email: {profile.email}</p>
-            <p>Resume: {profile.resume ? profile.resume.name : 'Not uploaded'}</p>
+          <div style={profileDetailsStyle}>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>Name:</span>
+              <span>{profile.name}</span>
+            </div>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>Email:</span>
+              <span>{profile.email}</span>
+            </div>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>College:</span>
+              <span>{profile.college}</span>
+            </div>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>Resume:</span>
+              <span>
+                {profile.resumeLink ? (
+                  <a 
+                    href={profile.resumeLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={linkStyle}
+                  >
+                    View Resume
+                  </a>
+                ) : (
+                  'Not uploaded'
+                )}
+              </span>
+            </div>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>GitHub:</span>
+              <span>
+                {profile.githubProfile ? (
+                  <a 
+                    href={profile.githubProfile} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={linkStyle}
+                  >
+                    GitHub Profile
+                  </a>
+                ) : (
+                  'Not provided'
+                )}
+              </span>
+            </div>
+            <div style={profileItemStyle}>
+              <span style={labelStyle}>LeetCode:</span>
+              <span>
+                {profile.leetcodeProfile ? (
+                  <a 
+                    href={profile.leetcodeProfile} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={linkStyle}
+                  >
+                    LeetCode Profile
+                  </a>
+                ) : (
+                  'Not provided'
+                )}
+              </span>
+            </div>
           </div>
         )}
       </section>
